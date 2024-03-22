@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="175dp"
+    android:id="@+id/bookCardView"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:padding="10dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/bookPhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/book_black"
+            android:layout_gravity="center"
+            android:contentDescription="avatar image" />
+
+        <TextView
+            android:id="@+id/bookNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="La ciudad de las estrellas fugaces" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/autorCardView"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="10dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp" >
+
+        <ImageView
+            android:id="@+id/autorPhoto"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/garcia_marquez"
+            android:contentDescription="avatar image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@id/autorPhoto"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/autorNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="Garcia Marquez" />
+
+            <TextView
+                android:id="@+id/autorNacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#00796B"
+                android:textSize="16sp"
+                android:text="Nacido en 1927" />
+
+            <TextView
+                android:id="@+id/autorPais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Colombia" />
+
+
+            <TextView
+                android:id="@+id/autorGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#7B1FA2"
+                android:textSize="16sp"
+                android:text="Realismo Magico" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
