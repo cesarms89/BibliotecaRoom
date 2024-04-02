@@ -2,7 +2,10 @@ package com.example.bibliotecadb
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
@@ -17,7 +20,9 @@ class BooksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books)
 
-        val autorName = intent.getStringExtra(MainActivity.AUTOR_NAME)
+        var activeSearch = false
+
+        val autorName = intent.getStringExtra(MainActivity.AUTOR_NAME).toString()
 
         val booksBackArrow: ImageView = findViewById(R.id.booksBackArrow)
         booksBackArrow.setOnClickListener{
@@ -26,6 +31,8 @@ class BooksActivity : AppCompatActivity() {
 
         val autorBooks: TextView = findViewById(R.id.autorBooks)
         autorBooks.setText(autorName)
+
+        val txtBookSearch: EditText = findViewById(R.id.txtBookSearch)
 
         val db = BibliotecaDB.getDatabase(applicationContext)
 
@@ -36,12 +43,30 @@ class BooksActivity : AppCompatActivity() {
         recyclerView.layoutManager = gridLayoutManager
 
         lifecycleScope.launch {
-            val books = db.bookDao().getByAutor(autorName.toString())
+            val books = db.bookDao().getByAutor(autorName)
             val adapter = BookAdapter(books)
             recyclerView.adapter = adapter
         }
 
+        val booksSearch: ImageView = findViewById(R.id.booksSearch)
+        booksSearch.setOnClickListener{
+            if (!activeSearch){
+                txtBookSearch.visibility = View.VISIBLE
+                txtBookSearch.requestFocus()
+                activeSearch = true
+            }
+            else{
+                val textSearch: String = txtBookSearch.text.toString()
+                //println(textSearch)
 
+                lifecycleScope.launch{
+                    val books = db.bookDao().findBook(autorName, textSearch)
+                    val adapter = BookAdapter(books)
+                    recyclerView.adapter = adapter
+                }
+
+            }
+        }
     }
 
     companion object {

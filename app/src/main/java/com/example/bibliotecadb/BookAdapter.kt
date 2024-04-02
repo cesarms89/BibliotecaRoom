@@ -33,7 +33,7 @@ class BookAdapter(private val booksList: List<Book>) : RecyclerView.Adapter<Book
 
         val cont = holder.bookCardView.context
         holder.bookCardView.setOnClickListener{
-            Toast.makeText(cont, "I'm ${booksList[position].libro}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(cont, "I'm ${booksList[position].libro}", Toast.LENGTH_SHORT).show()
 
             // Open second activity
             val intent = Intent(cont, BookDetailActivity::class.java)

@@ -39,7 +39,7 @@ class AutorAdapter(private val autores: List<Autor>) : RecyclerView.Adapter<Auto
 
         val cont = holder.autorCardView.context
         holder.autorCardView.setOnClickListener{
-            Toast.makeText(cont, "I'm ${autores[position].autor_name}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(cont, "I'm ${autores[position].autor_name}", Toast.LENGTH_SHORT).show()
 
             // Open second activity
             val intent = Intent(cont, BooksActivity::class.java)
